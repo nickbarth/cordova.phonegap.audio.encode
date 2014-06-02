@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="cordova.phonegap.audio.encode" version="1.0.0">
+  <engines>
+    <engine name="cordova" version=">=3.0.0" />
+  </engines>
+  <name>AudioEncode</name>
+  <description>Plugin for iOS to encode wav to m4a.</description>
+  <author>Nick Barth</author>
+  <keywords>iOS Audio Recording Encoding Compression</keywords>
+  <license>MIT</license>
+
+  <!-- JavaScript interface -->
+  <js-module src="www/AudioEncode.js" name="AudioEncode" target="www/AudioEncode.js">
+    <clobbers target="window.encodeAudio" />
+  </js-module>
+
+  <!-- ios -->
+  <platform name="ios">
+    <config-file target="config.xml" parent="plugins">
+      <feature name="AudioEncode">
+        <param name="ios-package" value="AudioEncode"/>
+        <param name="onload" value="true" />
+      </feature>
+      <plugin name="AudioEncode" value="AudioEncode"/>
+    </config-file>
+    <header-file src="src/ios/AudioEncode.h" />
+    <source-file src="src/ios/AudioEncode.m" />
+  </platform>
+</plugin>
